@@ -43,7 +43,6 @@ class Client extends BaseClient
         $read->on('xmpp.authentication.success', function($data) use ($connection, $write) {
             //$write->xmppBind(); // @todo not required on HipChat?
             $write->xmppEstablishSession($connection->getHost());
-            $write->xmppPresence($connection->getJabberId());
         });
 
         $read->on('xmpp.stream.end', function($data) use ($loop) {

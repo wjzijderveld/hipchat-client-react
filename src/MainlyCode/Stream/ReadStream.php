@@ -30,7 +30,7 @@ class ReadStream extends WritableStream
             return;
         }
 
-        if ('<proceed xmlns="urn:ietf:params:xml:ns:xmpp-tls"/>' == $data) {
+        if ('<proceed xmlns=\'urn:ietf:params:xml:ns:xmpp-tls\'/>' == $data) {
             $this->emit('xmpp.tls.proceed', array($data));
             return;
         }
@@ -40,12 +40,12 @@ class ReadStream extends WritableStream
             return;
         }
 
-        if ('<iq type="result" id="1001"/>' === $data) {
+        if ('<iq type=\'result\' id=\'1001\'/>' === $data) {
             $this->emit('xmpp.authentication.success', array($data));
             return;
         }
 
-        if ('<iq type="result" from="chat.hipchat.com" id="sess_1"/>' === $data) {
+        if ('<iq type=\'result\' from=\'chat.hipchat.com\' id=\'sess_1\'/>' === $data) {
             $this->emit('xmpp.session.established', array($data));
             return;
         }
